@@ -1,0 +1,12 @@
+[Unit]
+Description=NGINX metrics exporter for openfalcon
+After=network-online.target
+
+[Service]
+ExecStart=/usr/local/bin/nginxlog-agent -f /etc/nginxlog-agent.yaml
+Restart=always
+ProtectSystem=full
+CapabilityBoundingSet=
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,14 @@
+namespace: 
+  - endpoint: geass-nginx   #openfalcon的endpoint
+    format: "$remote_addr - $remote_user [$time_local] \"$request\" $status $body_bytes_sent \"$http_referer\" \"$http_user_agent\" \"$http_x_forwarded_for\" $request_time - $host"
+    source_files:    #需要读取的源文件
+      - /Users/yun/go/src/github.com/forest11/nginxlog-agent/agent/access.log
+    labels:      #openfalcon的tag
+      host: "geass-02"
+
+  - endpoint: pay-nginx   #同时支持多个endpoint，根据endpoint数量启动对应数据的goroutine执行
+    format: "$remote_addr - $remote_user [$time_local] \"$request\" $status $body_bytes_sent \"$http_referer\" \"$http_user_agent\" \"$http_x_forwarded_for\" $request_time - $host"
+    source_files:
+      - /Users/yun/go/src/github.com/forest11/nginxlog-agent/agent/access.log
+    labels: 
+      host: "geass-02"

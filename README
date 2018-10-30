@@ -1,0 +1,22 @@
+收集nginx日志到openfalcon中
+
+需要创建配置文件： /etc/nginxlog-agent.yaml
+centos 7 上使用systemd进行管理
+    把nginxlog-agent.service放到/usr/lib/systemd/system目录下面，启动使用systemctl start nginxlog-agent 
+
+centos 6 上使用
+    /usr/local/bin/nginxlog-agent -f /etc/nginxlog-agent.yaml &
+
+Metrics都是counter类型，大致有如下几类
+响应状态统计
+countTotal
+status_2xx
+status_3xx
+status_4xx
+status_5xx
+status_other
+parse_errors
+请求时间统计
+requstTime_lt_1s
+requstTime_lt_3s
+requstTime_gt_3s
